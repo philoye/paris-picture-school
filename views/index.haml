@@ -55,7 +55,7 @@
 
             The best photo of the day as decided by the group &amp; guide will win a Freddo Frog [link to freddofrog.com] and will be published on the Paris in your camera facebook site.
           %aside
-            Pocket Digital Camera, good walking shoes & a smile
+            Pocket Digital Camera, good walking shoes &amp; a smile
             Includes Photography instruction &amp; 3 course meal
             Maximum participants 10
 
@@ -84,13 +84,17 @@
           %tbody
             - @events.each do |event|
               %tr
-                %td= event['local_date']
-                %td #{event['local_start']} — #{event['local_start']}
-                %td= event['name']
+                %td= event['local_start'].strftime('%e %b %Y ')
+                %td #{event['local_start'].strftime('%H:%M%P')}—#{event['local_end'].strftime('%H:%M%P')}
+                %td
+                  %p
+                    %strong= event['name']
+                  %p= event['location']
                 -if event['sold_out']
                   %td Sold Out
                 -else
-                  %td Register
+                  %td
+                    %a{:href=>event_link(event['uri'])} Register
       %footer
         Something would go down here
 

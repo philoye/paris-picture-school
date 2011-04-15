@@ -10,8 +10,10 @@ module ParisPictureSchool
 
     helpers do
       def local_time(time, timezone)
-        zone = ActiveSupport::TimeZone.new(timezone)
-        DateTime.parse(time).in_time_zone(zone)
+        ActiveSupport::TimeZone.new(timezone).parse(time)
+      end
+      def event_link(slug)
+        "http://parispictureschool.eventwax.com/" + slug
       end
     end
 
@@ -22,9 +24,8 @@ module ParisPictureSchool
         session = e['event_sessions'].first
         tz = e['time_zone']['info']['identifier']
         tix_remaining    = session['capacity'].to_i - session['attendees'].length.to_i
-        e['local_date']  = session['starts_on']
-        e['local_start'] = session['starts_on']
-        e['local_end']   = session['ends_on']
+        e['local_start'] = local_time session['starts_on'], tz
+        e['local_end']   = local_time session['ends_on'], tz
         e['sold_out']    = (tix_remaining == 0) ? true : false
       end
 
