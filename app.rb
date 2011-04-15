@@ -1,5 +1,6 @@
 require 'bundler'
 Bundler.require(:default)
+require 'active_support/core_ext'
 
 module ParisPictureSchool
   class Application < Sinatra::Base
