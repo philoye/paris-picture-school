@@ -1,0 +1,124 @@
+!!! 5
+-# paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+%html.no-js
+  <!--<![endif]-->
+  %head
+    %meta{ :charset => "utf-8" }/
+
+    -#
+      Always force latest IE rendering engine (even in intranet) & Chrome Frame
+      Remove this if you use the .htaccess
+    %meta{ :content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible" }/
+
+    %title
+    %meta{ :content => "", :name => "description" }/
+    %meta{ :content => "", :name => "author" }/
+
+    -# Mobile viewport optimized: j.mp/bplateviewport
+    %meta{ :content => "width=device-width, initial-scale=1.0", :name => "viewport" }/
+
+    -# Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
+    -# %link{ :href => "/favicon.ico", :rel => "shortcut icon" }/
+    -# %link{ :href => "/apple-touch-icon.png", :rel => "apple-touch-icon" }/
+
+    -# CSS: implied media="all"
+    %link{ :href => "css/style.css?v=1", :media => "all", :rel => "stylesheet" }/
+
+    -# Uncomment if you are specifically targeting less enabled mobile browsers
+    -# %link{ :href => "css/handheld.css?v=1", :media => "handheld", :rel => "stylesheet" }/
+
+    -# All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects
+    %script{ :src => "js/modernizr.min.js" }
+
+  %body{ :lang => "en" }
+    #container
+      %header
+        %hgruop
+          %h3 Laura Friezer presents
+          %h1 Paris Picture School
+          %h2 Learn how to take better photos in Paris
+      %section#intro
+        %p Have fun discovering the magic of light &amp; composition in the city of light.
+        %p Photograph the ancient palaces, beautiful gardens &amp; hidden laneways of Paris guided by a professional photographer [link to www.laurafriezer.com] who will unveil the simple rules to taking great photographs in all conditions with either a simple pocket digital or a DSLR camera.
+        %p Includes a 3 course lunch in an intimate Parisian restaurant
+      %section#courselist
+        %section.course
+          %header
+            %h1 Paris in your Pocket Tour
+          :markdown
+            Starting at the Palais Royal near the Louvre Museum in the 1st arrondissement, you will wind your way slowly through to the famous Louvre Pyramid strolling through to the Tuilleries garden. Take your time to enjoy Paris in all its splendour before sitting down with your guide and fellow students in an intimate Parisian restaurant to review and discuss your photos over a delicious 3-course lunch.
+
+            The best photo of the day as decided by the group &amp; guide will win a Freddo Frog [link to freddofrog.com] and will be published on the Paris in your camera facebook site.
+          %aside
+            Pocket Digital Camera, good walking shoes & a smile
+            Includes Photography instruction &amp; 3 course meal
+            Maximum participants 10
+
+        %section.course
+          %header
+            %h1 Paris in Your DSLR Tour
+            :markdown
+              With personalised attention & your DSLR set to Manual you will be guided through the Paris streets capturing the exquisite light and architecture of Paris to create artistic, imaginative photos starting at the Palais Royal near the Louvre Museum in the 1st arrondissement. You will wind your way slowly through to the famous Louvre Pyramid strolling through to the Tuileries garden. Take your time to enjoy Paris in all its splendour before sitting down with your guide and fellow students in an intimate Parisian restaurant to discuss and critique your photos over a delicious 3-course lunch.
+
+              The best photo of the day as decided by the group & guide will win a Freddo Frog [link to freddofrog.com] & be published on the Paris in your camera facebook site [link to facebook site]
+
+          %aside
+            Includes instruction &amp; 3 course meal
+            Maximum participants: 6
+            Digital SLR camera body &amp; lens, basic knowledge of photography
+
+      %section#upcoming
+        %header
+          %h1 Upcoming classes
+        %table
+          %thead
+            %tr
+              %th Date
+              %th Time
+              %th{ :colspan => 2 } Course
+          %tbody
+            - @events.each do |event|
+              %tr
+                %td= event['local_date']
+                %td #{event['local_start']} — #{event['local_start']}
+                %td= event['name']
+                -if event['sold_out']
+                  %td Sold Out
+                -else
+                  %td Register
+      %footer
+        Something would go down here
+
+    -#
+      Javascript at the bottom for fast page loading
+      Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary
+    %script{ :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" }
+    :javascript
+      !window.jQuery && document.write(unescape('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))
+
+    %script{ :src => "js/plugins.js?v=1" }
+    %script{ :src => "js/script.js?v=1" }
+
+    /[if lt IE 7 ]
+      %script{ :src => "js/dd_belatedpng.js" }
+      :javascript
+        //DD_belatedPNG.fix('img, .png_bg');
+
+    -#  asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
+    -#  change the UA-XXXXX-X to be your site's ID
+    :javascript
+      var _gaq = [['_setAccount', 'UA-XXXXX-X'], ['_trackPageview']];
+      (function(d, t) {
+       var g = d.createElement(t),
+           s = d.getElementsByTagName(t)[0];
+       g.async = true;
+       g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       s.parentNode.insertBefore(g, s);
+      })(document, 'script');
+
+
