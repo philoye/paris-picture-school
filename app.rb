@@ -12,6 +12,10 @@ module ParisPictureSchool
       def local_time(time, timezone)
         ActiveSupport::TimeZone.new(timezone).parse(time)
       end
+      def future? (date, timezone)
+        t = ActiveSupport::TimeZone.new(timezone)
+        return t.parse(date) >= t.today
+      end
     end
 
     before do
@@ -30,7 +34,7 @@ module ParisPictureSchool
           :end      => local_time(session['ends_on'], tz).strftime('%l:%M%P').strip,
           :sold_out => ((tix_remaining == 0) ? true : false)
         }
-        @events.push event
+        @events.push event if future?(session['starts_on'], tz)
       end
     end
 

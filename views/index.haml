@@ -83,23 +83,26 @@
                 Maximum participants: 6
                 Digital SLR camera body &amp; lens, basic knowledge of photography
 
-        %section#upcoming
-          %header
-            %h1 Upcoming classes
-          %table
-            - @events.each do |event|
-              %tr
-                %td.date
-                  %strong= event[:date]
-                  %span #{event[:start]}—#{event[:end]}
-                %td.course
-                  %strong= event[:name]
-                  = event[:location]
-                %td.action
-                  -if event[:sold_out]
-                    %span.soldout.medium.awesome Sold Out
-                  -else
-                    %a.awesome.magenta.medium{:href=>event[:link]} Register
+        - if @events.length > 0
+          %section#upcoming
+            %header
+              %h1 Upcoming classes
+            %table
+              - @events.each do |event|
+                %tr
+                  %td.date
+                    %strong= event[:date]
+                    %span #{event[:start]}—#{event[:end]}
+                  %td.course
+                    %strong= event[:name]
+                    = event[:location]
+                  %td.action
+                    -if event[:sold_out]
+                      %span.soldout.medium.awesome Sold Out
+                    -else
+                      %a.awesome.magenta.medium{:href=>event[:link]} Register
+          - else
+            %p There are no upcoming classes.
 
     -#
       Javascript at the bottom for fast page loading
