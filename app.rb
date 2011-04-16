@@ -12,24 +12,36 @@ module ParisPictureSchool
       def local_time(time, timezone)
         ActiveSupport::TimeZone.new(timezone).parse(time)
       end
-      def event_link(slug)
-        "http://parispictureschool.eventwax.com/" + slug
+    end
+
+    before do
+      events = JSON.parse(RestClient.get("https://" + ENV['PARISPICTURESCHOOL'] + "@secure.eventwax.com/api/events.json"))
+      @events = []
+      events.each do |e|
+        session = e['event_sessions'].first
+        tix_remaining    = session['capacity'].to_i - session['attendees'].length.to_i
+        tz = e['time_zone']['info']['identifier']
+        event = {
+          :name     => e['name'],
+          :location => e['location'],
+          :link     => "http://parispictureschool.eventwax.com/" + e['uri'],
+          :date     => local_time(session['starts_on'], tz).strftime('%e %b %Y'),
+          :start    => local_time(session['starts_on'], tz).strftime('%H:%M%P'),
+          :end      => local_time(session['ends_on'], tz).strftime('%H:%M%P'),
+          :sold_out => ((tix_remaining == 0) ? true : false)
+        }
+        @events.push event
       end
     end
 
     get '/' do
-      @events = JSON.parse(RestClient.get("https://" + ENV['PARISPICTURESCHOOL'] + "@secure.eventwax.com/api/events.json"))
-
-      @events.each do |e|
-        session = e['event_sessions'].first
-        tz = e['time_zone']['info']['identifier']
-        tix_remaining    = session['capacity'].to_i - session['attendees'].length.to_i
-        e['local_start'] = local_time session['starts_on'], tz
-        e['local_end']   = local_time session['ends_on'], tz
-        e['sold_out']    = (tix_remaining == 0) ? true : false
-      end
-
       haml :index
     end
+
+    get '/events' do
+      content_type :json
+      @events.to_json
+    end
+
   end
 end

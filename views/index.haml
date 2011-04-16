@@ -84,17 +84,17 @@
           %tbody
             - @events.each do |event|
               %tr
-                %td= event['local_start'].strftime('%e %b %Y ')
-                %td #{event['local_start'].strftime('%H:%M%P')}—#{event['local_end'].strftime('%H:%M%P')}
+                %td= event[:date]
+                %td #{event[:start]}—#{event[:end]}
                 %td
                   %p
-                    %strong= event['name']
-                  %p= event['location']
-                -if event['sold_out']
+                    %strong= event[:name]
+                  %p= event[:location]
+                -if event[:sold_out]
                   %td Sold Out
                 -else
                   %td
-                    %a{:href=>event_link(event['uri'])} Register
+                    %a{:href=>event[:link]} Register
       %footer
         Something would go down here
 
