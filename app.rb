@@ -25,9 +25,9 @@ module ParisPictureSchool
           :name     => e['name'],
           :location => e['location'],
           :link     => "http://parispictureschool.eventwax.com/" + e['uri'],
-          :date     => local_time(session['starts_on'], tz).strftime('%e %b %Y'),
-          :start    => local_time(session['starts_on'], tz).strftime('%H:%M%P'),
-          :end      => local_time(session['ends_on'], tz).strftime('%H:%M%P'),
+          :date     => local_time(session['starts_on'], tz).strftime('%e %b %Y').strip,
+          :start    => local_time(session['starts_on'], tz).strftime('%l:%M%P').strip,
+          :end      => local_time(session['ends_on'], tz).strftime('%l:%M%P').strip,
           :sold_out => ((tix_remaining == 0) ? true : false)
         }
         @events.push event
