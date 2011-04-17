@@ -34,7 +34,7 @@ module ParisPictureSchool
         event = {
           :name     => e['name'],
           :location => e['location'],
-          :link     => "http://parispictureschool.eventwax.com/" + e['uri'],
+          :link     => "http://parispictureschool.eventwax.com/" + e['uri'] + "/register",
           :date     => local_time(session['starts_on'], tz).strftime('%e %b %Y').strip,
           :start    => local_time(session['starts_on'], tz).strftime('%l:%M%P').strip,
           :end      => local_time(session['ends_on'], tz).strftime('%l:%M%P').strip,
