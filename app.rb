@@ -19,7 +19,12 @@ module ParisPictureSchool
       end
     end
 
-    before do
+    get '/' do
+      haml :index
+    end
+
+    get '/events.json' do
+      content_type :json
       events = JSON.parse(RestClient.get("https://" + ENV['PARISPICTURESCHOOL'] + "@secure.eventwax.com/api/events.json"))
       @events = []
       events.each do |e|
@@ -37,14 +42,6 @@ module ParisPictureSchool
         }
         @events.push event if future?(session['starts_on'], tz)
       end
-    end
-
-    get '/' do
-      haml :index
-    end
-
-    get '/events' do
-      content_type :json
       @events.to_json
     end
 

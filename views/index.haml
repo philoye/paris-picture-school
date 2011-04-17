@@ -83,26 +83,25 @@
                 Maximum participants: 6
                 Digital SLR camera body &amp; lens, basic knowledge of photography
 
-        - if @events.length > 0
-          %section#upcoming
-            %header
-              %h1 Upcoming classes
-            %table
-              - @events.each do |event|
-                %tr
-                  %td.date
-                    %strong= event[:date]
-                    %span #{event[:start]}—#{event[:end]}
-                  %td.course
-                    %strong= event[:name]
-                    = event[:location]
-                  %td.action
-                    -if event[:sold_out]
-                      %span.soldout.medium.awesome Sold Out
-                    -else
-                      %a.awesome.magenta.medium{:href=>event[:link]} Register
-          - else
-            %p There are no upcoming classes.
+        %section#upcoming
+          %header
+            %h1 Upcoming classes
+          %table#eventlist
+          %script#event-template{:type=>"text/x-jquery-template"}
+            %tr
+              %td.date
+                %strong ${date}
+                %span ${start}—${end}
+              %td.course
+                %strong ${name}
+                ${location}
+              %td.action
+                :plain
+                  {{if typeof(sold_out) != "undefined" && sold_out === false}}
+                    <a class="awesome magenta medium" href="${link}">Register</a>
+                  {{else}}
+                    <span class="awesome magenta medium soldout">Sold Out</span>
+                  {{/if}}
 
     -#
       Javascript at the bottom for fast page loading
@@ -110,6 +109,8 @@
     %script{ :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js" }
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/jquery.min.js"%3E%3C/script%3E'))
+    %script{ :src => "/js/jquery.tmpl.min.js" }
+    %script{ :src => "/js/script.js" }
 
     -#  asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
     -#  change the UA-XXXXX-X to be your site's ID
