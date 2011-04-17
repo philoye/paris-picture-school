@@ -7,6 +7,7 @@ module ParisPictureSchool
     enable :static
     set :path, File.join(File.dirname(__FILE__), 'views')
     set :public, File.join(File.dirname(__FILE__), 'public')
+    enable :logging if development?
 
     helpers do
       def local_time(time, timezone)
