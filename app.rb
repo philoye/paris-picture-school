@@ -48,5 +48,9 @@ module ParisPictureSchool
       @events.to_json
     end
 
+    get '/css/style.css' do
+      scss :style
+    end
+
   end
 end
