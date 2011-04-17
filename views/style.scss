@@ -1,5 +1,14 @@
 @charset "UTF-8";
 
+@mixin transition($property, $duration, $easing) {
+  -moz-transition: $property $duration $easing;  /* FF4+ */
+  -o-transition: $property $duration $easing;  /* Opera 10.5+ */
+  -webkit-transition: $property $duration $easing;  /* Saf3.2+, Chrome */
+  -ms-transition: $property $duration $easing;  /* IE10? */
+  transition: $property $duration $easing;
+}
+
+
 @mixin boxshadow($horizontal, $vertical, $blur, $color) {
   -moz-box-shadow: $horizontal $vertical $blur $color;
   -webkit-box-shadow: $horizontal $vertical $blur $color;
@@ -7,40 +16,40 @@
 }
 
 @mixin rotate($degrees) {
-	-moz-transform: rotate(#{$degrees}deg);  /* FF3.5+ */
-	-o-transform: rotate(#{$degrees}deg);  /* Opera 10.5 */
-	-webkit-transform: rotate(#{$degrees}deg);  /* Saf3.1+, Chrome */
-	-ms-transform: rotate(#{$degrees}deg);  /* IE9 */
-	transform: rotate(#{$degrees}deg);
+  -moz-transform: rotate(#{$degrees}deg);  /* FF3.5+ */
+  -o-transform: rotate(#{$degrees}deg);  /* Opera 10.5 */
+  -webkit-transform: rotate(#{$degrees}deg);  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(#{$degrees}deg);  /* IE9 */
+  transform: rotate(#{$degrees}deg);
 
-	/* calculate factorials for 3-9 */
-	$twof: 2;
-	$threef: 3*2;
-	$fourf: 4*3*2;
-	$fivef: 5*4*3*2;
-	$sixf: 6*5*4*3*2;
-	$sevenf: 7*6*5*4*3*2;
-	$eightf: 8*7*6*5*4*3*2;
-	$ninef: 9*8*7*6*5*4*3*2;
+  /* calculate factorials for 3-9 */
+  $twof: 2;
+  $threef: 3*2;
+  $fourf: 4*3*2;
+  $fivef: 5*4*3*2;
+  $sixf: 6*5*4*3*2;
+  $sevenf: 7*6*5*4*3*2;
+  $eightf: 8*7*6*5*4*3*2;
+  $ninef: 9*8*7*6*5*4*3*2;
 
-	/* Convert from radians to degrees */
-	$pi: 3.1415926535897;
-	$radians: $degrees * $pi / 180;
+  /* Convert from radians to degrees */
+  $pi: 3.1415926535897;
+  $radians: $degrees * $pi / 180;
 
-	/* Calculate the some exponents - ghetto style! */
-	$x: $radians;
-	$x2: $x * $radians;
-	$x3: $x2 * $radians;
-	$x4: $x3 * $radians;
-	$x5: $x4 * $radians;
-	$x6: $x5 * $radians;
-	$x7: $x6 * $radians;
-	$x8: $x7 * $radians;
-	$x9: $x8 * $radians;
+  /* Calculate the some exponents - ghetto style! */
+  $x: $radians;
+  $x2: $x * $radians;
+  $x3: $x2 * $radians;
+  $x4: $x3 * $radians;
+  $x5: $x4 * $radians;
+  $x6: $x5 * $radians;
+  $x7: $x6 * $radians;
+  $x8: $x7 * $radians;
+  $x9: $x8 * $radians;
 
-	$sinx: $x - $x3/$threef + $x5/$fivef - $x7/$sevenf + $x9/$ninef;
-	$cosx: 1.0000000 - $x2/$twof + $x4/$fourf - $x6/$sixf + $x8/$eightf;
-	/* IE6–IE9  */
+  $sinx: $x - $x3/$threef + $x5/$fivef - $x7/$sevenf + $x9/$ninef;
+  $cosx: 1.0000000 - $x2/$twof + $x4/$fourf - $x6/$sixf + $x8/$eightf;
+  /* IE6–IE9  */
     filter: progid:DXImageTransform.Microsoft.Matrix(
             M11=#{$cosx}, M12=#{-1*$sinx},M21=#{$sinx}, M22=#{$cosx}, sizingMethod='auto expand');
       zoom: 1;
@@ -226,39 +235,60 @@ html {
   width: 832px;
 }
 .snap {
+  @include boxshadow(0, 1px, 3px, rgba(0,0,0,0.5));
+  @include transition(all, 1s, ease-in-out);
   position: absolute;
   z-index: 99;
-  @include boxshadow(0, 1px, 3px, rgba(0,0,0,0.5));
   border: 15px solid #fff;
 }
+$left_image_start: 100px;
+$right_image_start: 100px;
 #snap1 {
-  @include rotate(-25);
   top: 90px;
+  left: $left_image_start;
+}
+#snap1.moved {
+  @include rotate(-25);
   left: -200px;
 }
 #snap2 {
-  @include rotate(25);
   top: 80px;
+  right: $right_image_start;
+}
+#snap2.moved {
+  @include rotate(25);
   right: -160px;
 }
 #snap3 {
+  top: 350px;
+  left: $left_image_start;
+}
+#snap3.moved {
   @include rotate(-15);
   left: -190px;
-  top: 350px;
 }
 #snap4 {
-  @include rotate(15);
   top: 360px;
+  right: $right_image_start;
+}
+#snap4.moved {
+  @include rotate(15);
   right: -170px;
 }
 #snap5 {
+  top: 700px;
+  left: $left_image_start;
+}
+#snap5.moved {
   @include rotate(-25);
   left: -100px;
-  top: 700px;
 }
 #snap6 {
-  @include rotate(-15);
   top: 700px;
+  right: $right_image_start;
+}
+#snap6.moved {
+  @include rotate(-15);
   right: -120px;
 }
 #container {

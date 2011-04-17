@@ -1,5 +1,12 @@
 $(document).ready(function() {
 
+  $(".snap").each(function() {
+    var $this = $(this);
+    setTimeout(function() {
+      $this.addClass("moved");
+    }, 1000 + Math.random()*1000);
+  });
+
   $("script[type='text/x-jquery-template']").each( function () {
     $.template(this.id, this.innerHTML);
   });
