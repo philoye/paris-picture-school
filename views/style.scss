@@ -228,9 +228,9 @@ html {
   border: 15px solid #fff;
 }
 #snap1 {
-  @include rotate(-35);
-  top: 40px;
-  left: -180px;
+  @include rotate(-25);
+  top: 90px;
+  left: -200px;
 }
 #snap2 {
   @include rotate(25);
@@ -238,14 +238,14 @@ html {
   right: -160px;
 }
 #snap3 {
-  @include rotate(-25);
-  left: -150px;
+  @include rotate(-15);
+  left: -190px;
   top: 350px;
 }
 #snap4 {
-  @include rotate(-25);
-  top: 400px;
-  right: -150px;
+  @include rotate(15);
+  top: 360px;
+  right: -170px;
 }
 #snap5 {
   @include rotate(-25);
@@ -253,9 +253,9 @@ html {
   top: 700px;
 }
 #snap6 {
-  @include rotate(-25);
-  top: 800px;
-  right: -100px;
+  @include rotate(-15);
+  top: 700px;
+  right: -120px;
 }
 #container {
   position: relative;
