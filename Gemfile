@@ -2,7 +2,7 @@ source :rubyforge
 
 gem "thin"
 gem "rack"
-gem "haml"
+gem "haml", ">3.0"
 gem "rdiscount"
 gem "sinatra"
 gem "activesupport"
