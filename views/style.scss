@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+@mixin boxshadow($horizontal, $vertical, $blur, $color) {
+  -moz-box-shadow: $horizontal $vertical $blur $color;
+  -webkit-box-shadow: $horizontal $vertical $blur $color;
+  box-shadow: $horizontal $vertical $blur $color;
+}
 
 @mixin rotate($degrees) {
 	-moz-transform: rotate(#{$degrees}deg);  /* FF3.5+ */
@@ -223,8 +228,7 @@ html {
 .snap {
   position: absolute;
   z-index: 99;
-  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  @include boxshadow(0, 1px, 3px, rgba(0,0,0,0.5));
   border: 15px solid #fff;
 }
 #snap1 {
