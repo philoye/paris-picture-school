@@ -22,8 +22,11 @@ $(document).ready(function() {
     success:    function( data ) {
                   $holder.empty();
                   $("#loading").fadeOut('fast');
-                  $.tmpl( "event-template", data )
-                  .appendTo($holder).fadeIn('fast');
+                  if (data.length > 0) {
+                    $.tmpl( "event-template", data ).appendTo($holder).fadeIn('fast');
+                  } else {
+                    $holder.after("<div>No upcoming courses are scheduled, check back later.</div>");
+                  }
                 },
     error:      function ( data ) {
                   $holder.empty();
