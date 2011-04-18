@@ -1,5 +1,32 @@
 @charset "UTF-8";
 
+@mixin border-radius ($top-left, $top-right: null, $bottom-right: null, $bottom-left: null) {
+  @if $top-right == null {$top-right: $top-left}
+  @if $bottom-right == null {$bottom-right: $top-left}
+  @if $bottom-left == null {$bottom-left: $top-left}
+
+  /* FF1+ */
+  -moz-border-top-left-radius: $top-left;
+  -moz-border-top-right-radius: $top-right;
+  -moz-border-bottom-right-radius: $bottom-right;
+  -moz-border-bottom-left-radius: $bottom-left;
+
+  /* Saf3-4, iOS 1+, Android 1.5+ */
+  -webkit-border-top-left-radius: $top-left;
+  -webkit-border-top-right-radius: $top-right;
+  -webkit-border-bottom-right-radius: $bottom-right;
+  -webkit-border-bottom-left-radius: $bottom-left;
+
+  /* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+  border-top-left-radius: $top-left;
+  border-top-right-radius: $top-right;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+
+  /* useful if you don't want a bg color from leaking outside the border: */
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+}
+
 @mixin transition($property, $duration, $easing) {
   -moz-transition: $property $duration $easing;  /* FF4+ */
   -o-transition: $property $duration $easing;  /* Opera 10.5+ */
@@ -7,7 +34,6 @@
   -ms-transition: $property $duration $easing;  /* IE10? */
   transition: $property $duration $easing;
 }
-
 
 @mixin boxshadow($horizontal, $vertical, $blur, $color) {
   -moz-box-shadow: $horizontal $vertical $blur $color;
@@ -227,15 +253,15 @@ a:hover { color: #630030; }
 
 
 html {
-  background: #f8ebcb url('../images/noise.png') repeat;
+  background: #444 url('../images/noise.png') repeat;
 }
 #outer-container {
   position: relative;
-  margin: 0 auto;
+  margin: 0;
   width: 832px;
 }
 .snap {
-  @include boxshadow(0, 1px, 3px, rgba(0,0,0,0.5));
+  @include boxshadow(0, 0, 10px, rgba(0,0,0,0.5));
   @include transition(all, 1s, ease-in-out);
   position: absolute;
   z-index: 99;
@@ -330,20 +356,20 @@ $right_image_start: 100px;
 #container {
   position: relative;
   width: 632px;
-  margin: 0 auto;
+  margin: 96px 24px 96px;
   font-size: 16px;
   padding: 12px 24px 72px 24px;
   line-height: 1.5;
-  background-color: #fff;
-  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
-  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  background-color: #eee;
+  @include boxshadow(0, 0, 10px, rgba(0,0,0,0.5));
+  @include border-radius(3px);
   z-index: 100;
 }
 #siteheader h1 {
   font-size: 48px;
   letter-spacing: -1px;
   text-transform: none;
-  margin-bottom: 24px;
+  margin: 48px 0 12px;
 }
 header {
   margin-top: 24px;
