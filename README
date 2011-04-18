@@ -1,1 +1,9 @@
-# Read the site
+Paris Picture School
+====================
+
+This is the source code behind the site. It uses Ruby 1.9.2, Sinatra, HAML/SASS, and talks to the EventWax api to get a list of upcoming events.
+
+The EventWax API uses Basic Auth, so I've stuck the username/password in my ENV, so if you want to do something similar, you'll need to:
+
+      export PARISPICTURESCHOOL=username:password
+
