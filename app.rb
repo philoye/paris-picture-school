@@ -47,7 +47,7 @@ module ParisPictureSchool
     end
 
     get '/css/style.css' do
-      scss :style
+      sass :style
     end
 
   end
