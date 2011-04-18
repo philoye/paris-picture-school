@@ -42,6 +42,7 @@ module ParisPictureSchool
         }
         @events.push event if future?(session['starts_on'], tz)
       end
+      @events.sort_by! {|event| Date.parse(event[:date]) }
       @events.to_json
     end
 
