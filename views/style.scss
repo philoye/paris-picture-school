@@ -347,12 +347,11 @@ $right_image_start: 100px;
   right: -240px;
 }
 #snap11 {
-  bottom: 200px;
+  top: 1550px;
 }
 #snap11.moved {
   @include rotate(15);
-  right: -50px;
-  bottom: -100px;
+  right: -150px;
 }
 
 #container {
