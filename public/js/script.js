@@ -2,9 +2,13 @@ $(document).ready(function() {
 
   $(".snap").each(function() {
     var $this = $(this);
-    setTimeout(function() {
+    if (Modernizr.csstransitions) {
+      setTimeout(function() {
+        $this.addClass("moved");
+      }, 2000 + Math.random()*2000);
+    } else {
       $this.addClass("moved");
-    }, 1000 + Math.random()*1000);
+    }
   });
 
   $("script[type='text/x-jquery-template']").each( function () {
