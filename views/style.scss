@@ -251,7 +251,9 @@ a:hover { color: #630030; }
  * Author:
  */
 
-
+.js .nojs {
+  display: none;
+}
 html {
   background: #444 url('../images/noise.png') repeat;
 }
