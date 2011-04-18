@@ -240,57 +240,93 @@ html {
   position: absolute;
   z-index: 99;
   border: 15px solid #fff;
+  right: 200px;
+}
+.snap.moved {
+  right: -160px;
 }
 $left_image_start: 100px;
 $right_image_start: 100px;
 #snap1 {
-  top: 90px;
-  left: $left_image_start;
+  top: 20px;
 }
 #snap1.moved {
   @include rotate(-25);
-  left: -200px;
+  top: -50px;
 }
 #snap2 {
-  top: 80px;
-  right: $right_image_start;
+  top: 90px;
 }
 #snap2.moved {
-  @include rotate(25);
-  right: -160px;
+  @include rotate(15);
+  right: 380px;
+  top: -150px;
 }
 #snap3 {
-  top: 350px;
-  left: $left_image_start;
+  top: 120px;
 }
 #snap3.moved {
   @include rotate(-15);
-  left: -190px;
+  right: -270px;
 }
 #snap4 {
-  top: 360px;
-  right: $right_image_start;
+  top: 300px;
 }
 #snap4.moved {
-  @include rotate(15);
-  right: -170px;
+  @include rotate(20);
+  right: -80px;
 }
 #snap5 {
-  top: 700px;
-  left: $left_image_start;
+  top: 500px;
 }
 #snap5.moved {
-  @include rotate(-25);
-  left: -100px;
+  @include rotate(5);
+  right: -270px;
 }
 #snap6 {
-  top: 700px;
-  right: $right_image_start;
+  top: 680px;
 }
 #snap6.moved {
-  @include rotate(-15);
-  right: -120px;
+  @include rotate(5);
+  right: -90px;
 }
+#snap7 {
+  top: 900px;
+}
+#snap7.moved {
+  @include rotate(-15);
+  right: -250px;
+}
+#snap8 {
+  top: 20px;
+}
+#snap8.moved {
+  @include rotate(-15);
+  top: -170px;
+  right: 80px;
+}
+#snap9 {
+  top: 1080px;
+}
+#snap9.moved {
+  @include rotate(15);
+}
+#snap10 {
+  top: 1300px;
+}
+#snap10.moved {
+  @include rotate(-15);
+  right: -240px;
+}
+#snap11 {
+  bottom: 200px;
+}
+#snap11.moved {
+  @include rotate(15);
+  right: -50px;
+  bottom: -100px;
+}
+
 #container {
   position: relative;
   width: 632px;
