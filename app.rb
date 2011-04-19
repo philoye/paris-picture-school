@@ -4,13 +4,17 @@ require 'active_support/core_ext'
 
 module ParisPictureSchool
   class Application < Sinatra::Base
-    enable :static
-    set :path, File.join(File.dirname(__FILE__), 'views')
-    set :public, File.join(File.dirname(__FILE__), 'public')
-    enable :logging if development?
-    set :haml, :format => :html5
-    Sass::Plugin.options['/tmp']
 
+    configure do
+      enable :static
+      set :path, File.join(File.dirname(__FILE__), 'views')
+      set :public, File.join(File.dirname(__FILE__), 'public')
+      set :haml, :format => :html5
+    end
+    configure :development do
+      enable :logging
+      set :sass, :cache => false
+    end
     helpers do
       def local_time(time, timezone)
         ActiveSupport::TimeZone.new(timezone).parse(time)
