@@ -26,10 +26,12 @@ module ParisPictureSchool
     end
 
     get '/' do
+      response.headers['Cache-Control'] = 'public, max-age=900'
       haml :index
     end
 
     get '/events.json' do
+      response.headers['Cache-Control'] = 'public, max-age=60'
       content_type :json
       events = JSON.parse(RestClient.get("https://" + ENV['PARISPICTURESCHOOL'] + "@secure.eventwax.com/api/events.json"))
       @events = []
