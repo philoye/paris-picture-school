@@ -34,8 +34,9 @@ $.fn.imagesLoaded = function(callback){
 
 $(document).ready(function() {
 
-  $("#images").imagesLoaded(function() {
-    $(".snap").each(function() {
+  // FIXME: imagesLoaded is waiting until ajax to complete before firing, no good.
+  //$("#images",this).imagesLoaded(function() {
+    $('.snap').each(function() {
       var $this = $(this);
       if (Modernizr.csstransitions) {
         setTimeout(function() {
@@ -45,7 +46,7 @@ $(document).ready(function() {
         $this.addClass("moved");
       }
     });
-  });
+  //});
 
   $("script[type='text/x-jquery-template']").each( function () {
     $.template(this.id, this.innerHTML);
