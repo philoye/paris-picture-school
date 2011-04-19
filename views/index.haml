@@ -45,18 +45,6 @@
 
   %body{ :lang => "en" }
     #outer-container
-      #images
-        %img.snap#snap1{:src => 'images/paris-1.jpg'}
-        %img.snap#snap2{:src => 'images/tour-8.jpg'}
-        %img.snap#snap3{:src => 'images/paris-3.jpg'}
-        %img.snap#snap5{:src => 'images/paris-5.jpg'}
-        %img.snap#snap4{:src => 'images/paris-4.jpg'}
-        %img.snap#snap6{:src => 'images/paris-6.jpg'}
-        %img.snap#snap7{:src => 'images/tour-5.jpg'}
-        %img.snap#snap8{:src => 'images/tour-2.jpg'}
-        %img.snap#snap9{:src => 'images/paris-11.jpg'}
-        %img.snap#snap10{:src => 'images/paris-2.jpg'}
-        %img.snap#snap11{:src => 'images/tour-3.jpg'}
       #container
         %header#siteheader
           %hgroup
@@ -72,34 +60,51 @@
 
         %section#courselist
           %header
-            %h1 The course list
+            %h1 Available courses
 
           %section.course
             %header
-              %h2 Paris in your Pocket Tour
-            :markdown
-              Starting at the Palais Royal near the Louvre Museum in the 1st arrondissement, you will wind your way slowly through to the famous Louvre Pyramid strolling through to the Tuilleries garden. Take your time to enjoy Paris in all its splendour before sitting down with your guide and fellow students in an intimate Parisian restaurant to review and discuss your photos over a delicious 3-course lunch.
+              %h2 The “Amélie” Montmartre Photography Study Tour
+              %h3 Learn how to take better photos in Paris with Amelie
+              %img{:src => 'images/amelie.jpg', :width => '150', :height => '150', :title => "Amelie Poster"}
+              .cost <strong>€120</strong> per person, includes lunch (max 4 per class)
 
-              The best photo of the day as decided by the group &amp; guide will win a <a href="http://www.freddofrog.com/">Freddo Frog</a> and will be published on the Paris in your camera facebook site.
-            %aside
-              :markdown
-                Bring your Pocket Digital Camera, good walking shoes &amp; a smile
-                Includes Photography instruction &amp; 3 course meal
-                Maximum participants 10
+            :markdown
+              * Abbesses/Sacre Coeur/Rue Lepic – 18th Arrondissement Paris
+              * Starting at the metro Absesses in the 18th arrondissement you will be delighted as you follow our Amelie (french actress Celine Groussard) around her neighbourhood.
+              * Have fun capturing the moment as you wind your way slowly up to Sacre Coeur.
+              * Descending back into the tangled streets of Montmartre we will end the study tour in Amelie’s restaurant “Les Deux Moulins” on the famous rue Lepic.
+              * Sitting down to review and discuss your photos over a delicious lunch.
+              * The best pictures of the day will be published on the Paris Picture School Facebook site.
 
           %section.course
             %header
-              %h2 Paris in Your DSLR Tour
+              %h2 Breathless in Paris
+              %h3 Go on a wild crazy ride in black &amp; white
+              %img{:src => 'images/breathless.jpg', :width => '150', :height => '150', :title => "Breathless"}
+              .cost <strong>€120</strong> per person, includes dinner (max 4 per class)
+
             :markdown
-              With personalised attention & your DSLR set to Manual you will be guided through the Paris streets capturing the exquisite light and architecture of Paris to create artistic, imaginative photos starting at the Palais Royal near the Louvre Museum in the 1st arrondissement. You will wind your way slowly through to the famous Louvre Pyramid strolling through to the Tuileries garden. Take your time to enjoy Paris in all its splendour before sitting down with your guide and fellow students in an intimate Parisian restaurant to discuss and critique your photos over a delicious 3-course lunch.
+              *  Arc de Triomphe/Champs Elysees/local cafés & bars 8th arrondissement Paris
+              *  We’ll meet in the shadow of the Arc de Triomphe on the Champs Elysees as Michel (our hero) emerges  blinking into the early evening parisian light.
+              *  We follow Michel as he leads us on a merry dance avoiding the police trying to get the girl & the money.
+              *  Smoking, drinking, hats & sharp suits are encouraged.
+              *  All pictures will be shot or converted into Black & White.
+              *  We end the wild crazy ride in a bar eating, drinking, looking & discussing our amazing pictures.
+              *  The best pictures of the day will be published on the Paris Picture School Facebook site.
 
-              The best photo of the day as decided by the group & guide will win a <a href="http://www.freddofrog.com/">Freddo Frog</a> &amp; be published on the Paris in your camera facebook site [link to facebook site]
+          %section.course
+            %header
+              %h2 The “Da Vinci Code” Louvre Photography Study Tour
+              %h3 Crack the code to taking better photos
+              %img{:src => 'images/davincicode.jpg', :width => '150', :height => '150', :title => "Da Vinci Code"}
+              .cost <strong>€120</strong> per person, includes lunch (max 4 per class)
 
-            %aside
-              :markdown
-                Includes instruction &amp; 3 course meal
-                Maximum participants: 6
-                Digital SLR camera body &amp; lens, basic knowledge of photography
+            :markdown
+              * Palais Royal/Louvre/Tuilerie Gardens 1st arrondissement Paris
+              * Starting at the Palais Royal near the Louvre Museum we will follow Tom slowly through to the famous Louvre Pyramid, strolling through to the sumptuous Tuilerie gardens
+              * We will end the study tour in a restaurant hidden in a cave down a Paris laneway to review and discuss your photos over a delicious 3-course lunch.
+              * The best pictures of the day will be published on the Paris Picture School Facebook site.
 
         %section#upcoming
           %header
@@ -157,6 +162,19 @@
                 //]]>
             %li
               +33 6 58 28 84 09
+      #images
+        %img.snap#snap1{:src => 'images/paris-1.jpg'}
+        %img.snap#snap2{:src => 'images/tour-8.jpg'}
+        %img.snap#snap3{:src => 'images/paris-3.jpg'}
+        %img.snap#snap5{:src => 'images/paris-5.jpg'}
+        %img.snap#snap4{:src => 'images/paris-4.jpg'}
+        %img.snap#snap6{:src => 'images/paris-6.jpg'}
+        %img.snap#snap7{:src => 'images/tour-5.jpg'}
+        %img.snap#snap8{:src => 'images/tour-2.jpg'}
+        %img.snap#snap9{:src => 'images/paris-11.jpg'}
+        %img.snap#snap10{:src => 'images/paris-2.jpg'}
+        %img.snap#snap11{:src => 'images/tour-3.jpg'}
+
     -#
       Javascript at the bottom for fast page loading
       Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary

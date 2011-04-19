@@ -118,23 +118,13 @@ $right_image_start: 100px
   +border-radius(3px)
   z-index: 100
 
-#siteheader h1
-  font-size: 48px
-  letter-spacing: -1px
-  text-transform: none
-  margin: 48px 0 12px
+p
+  margin-bottom: 24px
 
 header
   margin-top: 24px
   h2
     margin-top: 12px
-
-section
-  position: relative
-  margin-bottom: 24px
-
-p
-  margin-bottom: 24px
 
 h1
   text-transform: uppercase
@@ -142,24 +132,42 @@ h1
   margin-bottom: -12px
   font-size: 13px
   line-height: 24px
-
-table
-  margin-top: 24px
   border-top: 1px solid #ccc
-  width: 100%
-  td
-    padding: 12px 24px 12px 0
-    text-align: left
-    border-bottom: 1px solid #ccc
-  td.date
-    width: 150px
-  td.action
-    padding-right: 0px
-    text-align: right
-  strong
-    display: block
-  span
-    white-space: nowrap
+  padding-top: 12px
+#siteheader h1
+  font-size: 48px
+  letter-spacing: -1px
+  text-transform: none
+  margin: 48px 0 12px
+  border: 0
+
+section
+  position: relative
+  margin-bottom: 24px
+
+section.course
+  header
+    min-height: 162px
+  h2, h3, .cost
+    margin-left: 174px
+  h2
+    font-weight: normal
+    font-size: 24px
+    line-height: 1.2
+    width: 300px
+    padding-top: 24px
+  h3
+    font-weight: normal
+    font-style: italic
+    font-size: 16px
+  img
+    position: absolute
+    top: 0
+    left: 0
+  ul
+    margin-left: 1em
+
+
 
 section#bio h1
   margin-bottom: 12px
@@ -190,6 +198,25 @@ footer
         border-left: 0
         padding-left: 0
         margin-left: 0
+
+table
+  margin-top: 24px
+  width: 100%
+  td
+    padding: 12px 24px 12px 0
+    text-align: left
+    border-top: 1px dotted #ccc
+  td.course strong
+    padding-right: 90px
+  td.date
+    width: 150px
+  td.action
+    padding-right: 0px
+    text-align: right
+  strong
+    display: block
+  span
+    white-space: nowrap
 
 .awesome, .awesome:visited
   background: #a9014b
