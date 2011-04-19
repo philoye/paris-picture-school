@@ -10,6 +10,7 @@ gem "rest-client"
 gem "tzinfo"
 gem "i18n"
 gem "json"
+gem "hassle"
 
 group :development do
 	gem "sinatra-reloader", :require => "sinatra/reloader"

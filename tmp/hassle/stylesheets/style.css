@@ -1,0 +1,783 @@
+@charset "UTF-8";
+/**
+ * HTML5 ✰ Boilerplate
+ *
+ * style.css contains a reset, font normalization and some base styles.
+ *
+ * Credit is left where credit is due.
+ * Much inspiration was taken from these projects:
+ * - yui.yahooapis.com/2.8.1/build/base/base.css
+ * - camendesign.com/design/
+ * - praegnanz.de/weblog/htmlcssjs-kickstart
+ */
+/**
+ * html5doctor.com Reset Stylesheet (Eric Meyer's Reset Reloaded + HTML5 baseline)
+ * v1.6.1 2010-09-17 | Authors: Eric Meyer & Richard Clark
+ * html5doctor.com/html-5-reset-stylesheet/
+ */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none; }
+
+ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+del {
+  text-decoration: line-through; }
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted;
+  cursor: help; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0; }
+
+input, select {
+  vertical-align: middle; }
+
+/**
+ * Font normalization inspired by YUI Library's fonts.css: developer.yahoo.com/yui/
+ */
+body {
+  font: 13px/1.231 sans-serif;
+  *font-size: small; }
+
+/* Hack retained to preserve specificity */
+select, input, textarea, button {
+  font: 99% sans-serif; }
+
+/* Normalize monospace sizing:
+   en.wikipedia.org/wiki/MediaWiki_talk:Common.css/Archive_11#Teletype_style_fix_for_Chrome */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif; }
+
+/**
+ * Minimal base styles.
+ */
+/* Always force a scrollbar in non-IE */
+html {
+  overflow-y: scroll; }
+
+/* Accessible focus treatment: people.opera.com/patrickl/experiments/keyboard/test */
+a:hover, a:active {
+  outline: none; }
+
+ul, ol {
+  margin-left: 2em; }
+
+ol {
+  list-style-type: decimal; }
+
+/* Remove margins for navigation lists */
+nav ul, nav li {
+  margin: 0;
+  list-style: none;
+  list-style-image: none; }
+
+small {
+  font-size: 85%; }
+
+strong, th {
+  font-weight: bold; }
+
+td {
+  vertical-align: top; }
+
+/* Set sub, sup without affecting line-height: gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative; }
+
+sup {
+  top: -0.5em; }
+
+sub {
+  bottom: -0.25em; }
+
+pre {
+  /* www.pathf.com/blogs/2008/05/formatting-quoted-code-in-blog-posts-css21-white-space-pre-wrap/ */
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  padding: 15px; }
+
+textarea {
+  overflow: auto; }
+
+/* www.sitepoint.com/blogs/2010/08/20/ie-remove-textarea-scrollbars/ */
+.ie6 legend, .ie7 legend {
+  margin-left: -7px; }
+
+/* Align checkboxes, radios, text inputs with their label by: Thierry Koblentz tjkdesign.com/ez-css/css/base.css  */
+input[type="radio"] {
+  vertical-align: text-bottom; }
+
+input[type="checkbox"] {
+  vertical-align: bottom; }
+
+.ie7 input[type="checkbox"] {
+  vertical-align: baseline; }
+
+.ie6 input {
+  vertical-align: text-bottom; }
+
+/* Hand cursor on clickable input elements */
+label, input[type="button"], input[type="submit"], input[type="image"], button {
+  cursor: pointer; }
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0; }
+
+/* Colors for form validity */
+input:invalid, textarea:invalid {
+  border-radius: 1px;
+  -moz-box-shadow: 0px 0px 5px red;
+  -webkit-box-shadow: 0px 0px 5px red;
+  box-shadow: 0px 0px 5px red; }
+
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid {
+  background-color: #f0dddd; }
+
+/* These selection declarations have to be separate
+   No text-shadow: twitter.com/miketaylr/status/12228805301
+   Also: hot pink! */
+::-moz-selection {
+  background: #FF5E99;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #a9014b;
+  color: #fff;
+  text-shadow: none; }
+
+/* j.mp/webkit-tap-highlight-color */
+a:link {
+  -webkit-tap-highlight-color: #a9014b; }
+
+/* Make buttons play nice in IE:
+   www.viget.com/inspire/styling-the-button-element-in-internet-explorer/ */
+button {
+  width: auto;
+  overflow: visible; }
+
+/* Bicubic resizing for non-native sized IMG:
+   code.flickr.com/blog/2008/11/12/on-ui-quality-the-little-things-client-side-image-resizing/ */
+.ie7 img {
+  -ms-interpolation-mode: bicubic; }
+
+/**
+ * You might tweak these..
+ */
+body, select, input, textarea {
+  /* #444 looks better than black: twitter.com/H_FJ/statuses/11800719859 */
+  color: #444;
+  /* Set your base font here, to apply evenly */
+  font-family: sans-serif; }
+
+/* Headers (h1, h2, etc) have no default font-size or margin; define those yourself */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold; }
+
+a, a:active, a:visited {
+  color: #a9014b; }
+
+a:hover {
+  color: #630030; }
+
+.js .nojs {
+  display: none; }
+
+html {
+  background: #444444 url("../images/noise.png") repeat; }
+
+#outer-container {
+  position: relative;
+  margin: 0;
+  width: 832px; }
+
+.snap {
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -moz-transition: all 1s ease-in-out;
+  /* FF4+ */
+  -o-transition: all 1s ease-in-out;
+  /* Opera 10.5+ */
+  -webkit-transition: all 1s ease-in-out;
+  /* Saf3.2+, Chrome */
+  -ms-transition: all 1s ease-in-out;
+  /* IE10? */
+  transition: all 1s ease-in-out;
+  position: absolute;
+  z-index: 99;
+  border: 15px solid white;
+  right: 200px; }
+
+.snap.moved {
+  right: -160px; }
+
+#snap1 {
+  top: 20px; }
+
+#snap1.moved {
+  -moz-transform: rotate(-25deg);
+  /* FF3.5+ */
+  -o-transform: rotate(-25deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(-25deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(-25deg);
+  /* IE9 */
+  transform: rotate(-25deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.906, M12=0.423,M21=-0.423, M22=0.906, sizingMethod='auto expand');
+  zoom: 1;
+  top: -50px; }
+
+#snap2 {
+  top: 90px; }
+
+#snap2.moved {
+  -moz-transform: rotate(15deg);
+  /* FF3.5+ */
+  -o-transform: rotate(15deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(15deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(15deg);
+  /* IE9 */
+  transform: rotate(15deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.966, M12=-0.259,M21=0.259, M22=0.966, sizingMethod='auto expand');
+  zoom: 1;
+  right: 380px;
+  top: -150px; }
+
+#snap3 {
+  top: 120px; }
+
+#snap3.moved {
+  -moz-transform: rotate(-15deg);
+  /* FF3.5+ */
+  -o-transform: rotate(-15deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(-15deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(-15deg);
+  /* IE9 */
+  transform: rotate(-15deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.966, M12=0.259,M21=-0.259, M22=0.966, sizingMethod='auto expand');
+  zoom: 1;
+  right: -270px; }
+
+#snap4 {
+  top: 300px; }
+
+#snap4.moved {
+  -moz-transform: rotate(20deg);
+  /* FF3.5+ */
+  -o-transform: rotate(20deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(20deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(20deg);
+  /* IE9 */
+  transform: rotate(20deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.94, M12=-0.342,M21=0.342, M22=0.94, sizingMethod='auto expand');
+  zoom: 1;
+  right: -80px; }
+
+#snap5 {
+  top: 500px; }
+
+#snap5.moved {
+  -moz-transform: rotate(5deg);
+  /* FF3.5+ */
+  -o-transform: rotate(5deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(5deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(5deg);
+  /* IE9 */
+  transform: rotate(5deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.996, M12=-0.087,M21=0.087, M22=0.996, sizingMethod='auto expand');
+  zoom: 1;
+  right: -270px; }
+
+#snap6 {
+  top: 680px; }
+
+#snap6.moved {
+  -moz-transform: rotate(5deg);
+  /* FF3.5+ */
+  -o-transform: rotate(5deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(5deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(5deg);
+  /* IE9 */
+  transform: rotate(5deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.996, M12=-0.087,M21=0.087, M22=0.996, sizingMethod='auto expand');
+  zoom: 1;
+  right: -90px; }
+
+#snap7 {
+  top: 900px; }
+
+#snap7.moved {
+  -moz-transform: rotate(-15deg);
+  /* FF3.5+ */
+  -o-transform: rotate(-15deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(-15deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(-15deg);
+  /* IE9 */
+  transform: rotate(-15deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.966, M12=0.259,M21=-0.259, M22=0.966, sizingMethod='auto expand');
+  zoom: 1;
+  right: -250px; }
+
+#snap8 {
+  top: 20px; }
+
+#snap8.moved {
+  -moz-transform: rotate(-15deg);
+  /* FF3.5+ */
+  -o-transform: rotate(-15deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(-15deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(-15deg);
+  /* IE9 */
+  transform: rotate(-15deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.966, M12=0.259,M21=-0.259, M22=0.966, sizingMethod='auto expand');
+  zoom: 1;
+  top: -170px;
+  right: 80px; }
+
+#snap9 {
+  top: 1080px; }
+
+#snap9.moved {
+  -moz-transform: rotate(15deg);
+  /* FF3.5+ */
+  -o-transform: rotate(15deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(15deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(15deg);
+  /* IE9 */
+  transform: rotate(15deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.966, M12=-0.259,M21=0.259, M22=0.966, sizingMethod='auto expand');
+  zoom: 1; }
+
+#snap10 {
+  top: 1300px; }
+
+#snap10.moved {
+  -moz-transform: rotate(-15deg);
+  /* FF3.5+ */
+  -o-transform: rotate(-15deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(-15deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(-15deg);
+  /* IE9 */
+  transform: rotate(-15deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.966, M12=0.259,M21=-0.259, M22=0.966, sizingMethod='auto expand');
+  zoom: 1;
+  right: -240px; }
+
+#snap11 {
+  top: 1550px; }
+
+#snap11.moved {
+  -moz-transform: rotate(15deg);
+  /* FF3.5+ */
+  -o-transform: rotate(15deg);
+  /* Opera 10.5 */
+  -webkit-transform: rotate(15deg);
+  /* Saf3.1+, Chrome */
+  -ms-transform: rotate(15deg);
+  /* IE9 */
+  transform: rotate(15deg);
+  /* calculate factorials for 3-9 */
+  /* Convert from radians to degrees */
+  /* Calculate the some exponents - ghetto style! */
+  /* IE6–IE9  */
+  filter: progid:DXImageTransform.Microsoft.Matrix(M11=0.966, M12=-0.259,M21=0.259, M22=0.966, sizingMethod='auto expand');
+  zoom: 1;
+  right: -150px; }
+
+#container {
+  position: relative;
+  width: 632px;
+  margin: 96px 24px 96px;
+  font-size: 16px;
+  padding: 12px 24px 72px 24px;
+  line-height: 1.5;
+  background-color: #eeeeee;
+  -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  /* FF1+ */
+  -moz-border-top-left-radius: 3px;
+  -moz-border-top-right-radius: 3px;
+  -moz-border-bottom-right-radius: 3px;
+  -moz-border-bottom-left-radius: 3px;
+  /* Saf3-4, iOS 1+, Android 1.5+ */
+  -webkit-border-top-left-radius: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -webkit-border-bottom-right-radius: 3px;
+  -webkit-border-bottom-left-radius: 3px;
+  /* Opera 10.5, IE9, Saf5, Chrome, FF4 */
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  /* useful if you don't want a bg color from leaking outside the border: */
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  z-index: 100; }
+
+p {
+  margin-bottom: 24px; }
+
+header {
+  margin-top: 24px; }
+  header h2 {
+    margin-top: 12px; }
+
+h1 {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: -12px;
+  font-size: 13px;
+  line-height: 24px;
+  border-top: 1px solid #cccccc;
+  padding-top: 12px; }
+
+#siteheader h1 {
+  font-size: 48px;
+  letter-spacing: -1px;
+  text-transform: none;
+  margin: 48px 0 12px;
+  border: 0; }
+
+section {
+  position: relative;
+  margin-bottom: 24px; }
+
+section.course header {
+  min-height: 162px; }
+section.course h2, section.course h3, section.course .cost {
+  margin-left: 174px; }
+section.course h2 {
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 1.2;
+  width: 300px;
+  padding-top: 24px; }
+section.course h3 {
+  font-weight: normal;
+  font-style: italic;
+  font-size: 16px; }
+section.course img {
+  position: absolute;
+  top: 0;
+  left: 0; }
+section.course ul {
+  margin-left: 1em; }
+
+section#bio h1 {
+  margin-bottom: 12px; }
+
+section#bio img {
+  float: left;
+  margin: 0 24px 12px 0; }
+
+section aside {
+  font-size: 12px;
+  color: #777777 px;
+  font-style: italic;
+  padding-right: 72px; }
+
+footer {
+  border-top: 1px solid #cccccc;
+  padding-top: 12px; }
+  footer ul {
+    margin: 0; }
+    footer ul li {
+      float: left;
+      display: inline;
+      list-style: none;
+      margin: 0 0 0 12px;
+      border-left: 1px solid #cccccc;
+      padding: 0 0 0 12px; }
+      footer ul li:first-child {
+        border-left: 0;
+        padding-left: 0;
+        margin-left: 0; }
+
+table {
+  margin-top: 24px;
+  width: 100%; }
+  table td {
+    padding: 12px 24px 12px 0;
+    text-align: left;
+    border-top: 1px dotted #cccccc; }
+  table td.course strong {
+    padding-right: 90px; }
+  table td.date {
+    width: 150px; }
+  table td.action {
+    padding-right: 0px;
+    text-align: right; }
+  table strong {
+    display: block; }
+  table span {
+    white-space: nowrap; }
+
+.awesome, .awesome:visited {
+  background: #a9014b;
+  display: inline-block;
+  padding: 5px 10px 5px;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  position: relative;
+  cursor: pointer;
+  line-height: 1;
+  font-weight: bold;
+  width: 65px;
+  text-align: center; }
+
+.awesome:hover {
+  background-color: #630030;
+  color: white; }
+
+.awesome:active {
+  top: 1px; }
+
+a.awesome {
+  color: white; }
+
+.awesome.soldout {
+  background-color: #999999;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+  border-bottom: 0;
+  font-weight: normal; }
+
+/**
+ * Non-semantic helper classes: please define your styles before this section.
+ */
+/* For image replacement */
+.ir {
+  display: block;
+  text-indent: -999em;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  text-align: left;
+  direction: ltr; }
+
+/* Hide for both screenreaders and browsers:
+   css-discuss.incutio.com/wiki/Screenreader_Visibility */
+.hidden {
+  display: none;
+  visibility: hidden; }
+
+/* Hide only visually, but have it available for screenreaders: by Jon Neal.
+  www.webaim.org/techniques/css/invisiblecontent/  &  j.mp/visuallyhidden */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px; }
+
+/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: drupal.org/node/897638 */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto; }
+
+/* Hide visually and from screenreaders, but maintain layout */
+.invisible {
+  visibility: hidden; }
+
+/* The Magnificent Clearfix: Updated to prevent margin-collapsing on child elements.
+   j.mp/bestclearfix */
+.clearfix:before, .clearfix:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  overflow: hidden; }
+
+.clearfix:after {
+  clear: both; }
+
+/* Fix clearfix: blueprintcss.lighthouseapp.com/projects/15318/tickets/5-extra-margin-padding-bottom-of-page */
+.clearfix {
+  zoom: 1; }
+
+/*
+ * Media queries for responsive design.
+ *
+ * These follow after primary styles so they will successfully override. */
+@media all and (orientation:portrait) {
+  /* Style adjustments for portrait mode goes here */ }
+
+@media all and (orientation:landscape) {
+  /* Style adjustments for landscape mode goes here */ }
+
+/* Grade-A Mobile Browsers (Opera Mobile, Mobile Safari, Android Chrome)
+ * consider this: www.cloudfour.com/css-media-query-for-mobile-is-fools-gold/ */
+@media screen and (max-device-width: 480px) {
+  /* Uncomment if you don't want iOS and WinMobile to mobile-optimize the text for you: j.mp/textsizeadjust */
+  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */ }
+
+/*
+ * Print styles.
+ *
+ * Inlined to avoid required HTTP connection: www.phpied.com/delay-loading-your-print-css/ */
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    text-shadow: none !important;
+    filter: none !important;
+    -ms-filter: none !important; }
+
+  /* Black prints faster: sanbeiji.com/archives/953 */
+  a, a:visited {
+    color: #444444 !important;
+    text-decoration: underline; }
+
+  a[href]:after {
+    content: " (" attr(href) ")"; }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")"; }
+
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: ""; }
+
+  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote {
+    border: 1px solid #999999;
+    page-break-inside: avoid; }
+
+  thead {
+    display: table-header-group; }
+
+  /* css-discuss.incutio.com/wiki/Printing_Tables */
+  tr, img {
+    page-break-inside: avoid; }
+
+  @page {
+    margin: 0.5cm; }
+
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3; }
+
+  h2, h3 {
+    page-break-after: avoid; } }

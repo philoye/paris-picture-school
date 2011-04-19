@@ -9,6 +9,7 @@ module ParisPictureSchool
     set :public, File.join(File.dirname(__FILE__), 'public')
     enable :logging if development?
     set :haml, :format => :html5
+    Sass::Plugin.options['/tmp']
 
     helpers do
       def local_time(time, timezone)
@@ -45,10 +46,6 @@ module ParisPictureSchool
       end
       @events.sort_by! {|event| Date.parse(event[:date]) }
       @events.to_json
-    end
-
-    get '/css/style.css' do
-      sass :style
     end
 
   end
