@@ -32,28 +32,21 @@ $.fn.imagesLoaded = function(callback){
   return this;
 };
 
-$(document).ready(function() {
 
-  // FIXME: imagesLoaded is waiting until ajax to complete before firing, no good.
-  //$("#images",this).imagesLoaded(function() {
-    $('.snap').each(function() {
-      var $this = $(this);
-      if (Modernizr.csstransitions) {
-        setTimeout(function() {
-          $this.addClass("moved");
-        }, 2500 + Math.random()*1000);
-      } else {
+function startMoving() {
+  $('.snap').each(function() {
+    var $this = $(this);
+    if (Modernizr.csstransitions) {
+      setTimeout(function() {
         $this.addClass("moved");
-      }
-    });
-  //});
-
-  $("script[type='text/x-jquery-template']").each( function () {
-    $.template(this.id, this.innerHTML);
+      }, Math.random()*1000);
+    } else {
+      $this.addClass("moved");
+    }
   });
+}
 
-  $holder = $("#eventlist");
-
+function loadEvents() {
   $.ajax({
     dataType:   "json",
     url:        "/events.json",
@@ -75,6 +68,21 @@ $(document).ready(function() {
                   $holder.after("<div id='error'>The ticketing system seems down, try again later?</div>");
                 }
   });
+}
+
+$(document).ready(function() {
+
+  // FIXME: imagesLoaded is waiting until ajax to complete before firing, no good.
+  $("#images").imagesLoaded(function() {
+    startMoving();
+    loadEvents();
+  });
+
+  $("script[type='text/x-jquery-template']").each( function () {
+    $.template(this.id, this.innerHTML);
+  });
+
+  $holder = $("#eventlist");
 
 });
 
