@@ -41,7 +41,7 @@ $(document).ready(function() {
       if (Modernizr.csstransitions) {
         setTimeout(function() {
           $this.addClass("moved");
-        }, 1000 + Math.random()*2000);
+        }, 2500 + Math.random()*1000);
       } else {
         $this.addClass("moved");
       }
