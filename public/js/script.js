@@ -66,8 +66,7 @@ function loadEvents() {
                   $holder.empty();
                   $("#loading").fadeOut('fast');
                   $holder.after("<div id='error'>The ticketing system seems down, try again later?</div>");
-                },
-    timeout:    300000
+                }
   });
 }
 
