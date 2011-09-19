@@ -39,7 +39,7 @@ module ParisPictureSchool
       @events = []
       events.each do |e|
         tix_remaining    = e['capacity'].to_i - e['attendees'].length.to_i
-        tz = e['time_zone']['info']['identifier']
+        tz = e['time_zone_desc']
         event = {
           :name     => e['name'],
           :location => e['location'],
