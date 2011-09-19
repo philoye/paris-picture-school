@@ -33,7 +33,9 @@ module ParisPictureSchool
     get '/events.json' do
       response.headers['Cache-Control'] = 'public, max-age=60'
       content_type :json
-      events = JSON.parse(RestClient.get("https://" + ENV['PARISPICTURESCHOOL'] + "@secure.eventwax.com/api/events.json"))
+
+      request = RestClient::Request.new :url=>'https://parispictureschool:manon181206@secure.eventwax.com/api/events.json',:method=>:get, :timeout=>300000
+      events = JSON.parse request.execute
       @events = []
       events.each do |e|
         tix_remaining    = e['capacity'].to_i - e['attendees'].length.to_i
