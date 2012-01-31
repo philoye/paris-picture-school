@@ -36,6 +36,7 @@ $.fn.imagesLoaded = function(callback){
 function startMoving() {
   $('.snap').each(function() {
     var $this = $(this);
+    $this.show();
     if (Modernizr.csstransitions) {
       setTimeout(function() {
         $this.addClass("moved");
