@@ -27,20 +27,10 @@
     %meta{ :content => "IE=edge,chrome=1", "http-equiv" => "X-UA-Compatible" }
 
     %title Paris Picture School — Photography Lessons &amp; Tours in Paris
-
     %meta{ :name => "description", :content => "Paris Picture School - Learn how to take better photos in Paris. Have fun discovering the magic of light & composition in the city of light. With each tour having a different movie theme and an actor supplied playing the main part, you will photograph the ancient palaces & buildings, beautiful gardens & hidden laneways of Paris as seen in the movies."}
 
-    -# Mobile viewport optimized: j.mp/bplateviewport
     %meta{ :content => "width=device-width", :name => "viewport" }
-
-    -# Place favicon.ico and apple-touch-icon.png in the root of your domain and delete these references
-    -# %link{ :href => "/favicon.ico", :rel => "shortcut icon" }/
-    -# %link{ :href => "/apple-touch-icon.png", :rel => "apple-touch-icon" }/
-
-    -# CSS: implied media="all"
     %link{ :href => "stylesheets/style.css", :media => "all", :rel => "stylesheet" }
-
-    -# All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects
     %script{ :src => "js/modernizr.min.js" }
 
   %body{ :lang => "en" }
@@ -178,25 +168,18 @@
             %li
               +33 6 58 28 84 09
 
-    -#
-      Javascript at the bottom for fast page loading
-      Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary
     %script{ :src => "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" }
     :javascript
       !window.jQuery && document.write(unescape('%3Cscript src="js/jquery-1.7.1.min.js"%3E%3C/script%3E'))
     %script{ :src => "/js/jquery.tmpl.min.js" }
     %script{ :src => "/js/script.js" }
 
-    -#  asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet
-    -#  change the UA-XXXXX-X to be your site's ID
     :javascript
       var _gaq=[['_setAccount','#{ENV['PARISPICTURESCHOOL_ANALYTICS']}'],['_trackPageview']];
       (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
       g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
       s.parentNode.insertBefore(g,s)}(document,'script'));
 
-
-    -# Guages analytics
     :javascript
       var _gauges = _gauges || [];
       (function() {
@@ -209,5 +192,4 @@
         var s = document.getElementsByTagName('script')[0];
         s.parentNode.insertBefore(t, s);
       })();
-
 
