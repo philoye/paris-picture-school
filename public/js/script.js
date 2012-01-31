@@ -5,7 +5,7 @@ function startMoving() {
     if (Modernizr.csstransitions) {
       setTimeout(function() {
         $this.addClass("moved");
-      }, Math.random()*1000);
+      }, (Math.random()*1500));
     } else {
       $this.addClass("moved");
     }
@@ -40,7 +40,7 @@ function loadEvents() {
 $(document).ready(function() {
 
   $holder = $("#eventlist");
-  $("#images").imagesLoaded( startMoving );
+  $("#images img").imagesLoaded( startMoving );
   loadEvents();
 
   $("script[type='text/x-jquery-template']").each( function () {
